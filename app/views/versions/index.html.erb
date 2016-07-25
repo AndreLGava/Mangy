@@ -1,0 +1,41 @@
+<div class="page-header">
+  <%= link_to new_version_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Version
+  <% end %>
+  <h1>Listing versions</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Responsable</th>
+            <th>Used user</th>
+            <th>System</th>
+            <th>Observation</th>
+            <th>Impediment</th>
+            <th>Start</th>
+            <th>Finish</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @versions) do |version| %>
+            <td><%= version.responsable %></td>
+            <td><%= version.used_user %></td>
+            <td><%= version.system %></td>
+            <td><%= version.observation %></td>
+            <td><%= version.impediment %></td>
+            <td><%= version.start %></td>
+            <td><%= version.finish %></td>
+            <td><%= link_to 'Show', version %></td>
+        <td><%= link_to 'Edit', edit_version_path(version) %></td>
+        <td><%= link_to 'Destroy', version, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

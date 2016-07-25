@@ -1,0 +1,50 @@
+<%= form_for(@version_test, html: { class: "form-horizontal", role: "form" }) do |f| %>
+  <% if @version_test.errors.any? %>
+    <div class="alert alert-danger alert-dismissable" role="alert">
+      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      <h4><%= pluralize(@version_test.errors.count, "error") %> prohibited this version_test from being saved:</h4>
+
+      <ul>
+      <% @version_test.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :obtained_result, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_area :obtained_result, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :impact, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_area :impact, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :check, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.check_box :check, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :version, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :version, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :test, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :test, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,62 @@
+<%= form_for(@version, html: { class: "form-horizontal", role: "form" }) do |f| %>
+  <% if @version.errors.any? %>
+    <div class="alert alert-danger alert-dismissable" role="alert">
+      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      <h4><%= pluralize(@version.errors.count, "error") %> prohibited this version from being saved:</h4>
+
+      <ul>
+      <% @version.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :responsable, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :responsable, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :used_user, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :used_user, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :system, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :system, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :observation, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_area :observation, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :impediment, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_area :impediment, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :start, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.date_select :start, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :finish, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.date_select :finish, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

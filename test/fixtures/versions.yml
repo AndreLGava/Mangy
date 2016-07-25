@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  responsable: MyString
+  used_user: MyString
+  system: MyString
+  observation: MyText
+  impediment: MyText
+  start: 2016-07-25
+  finish: 2016-07-25
+
+two:
+  responsable: MyString
+  used_user: MyString
+  system: MyString
+  observation: MyText
+  impediment: MyText
+  start: 2016-07-25
+  finish: 2016-07-25

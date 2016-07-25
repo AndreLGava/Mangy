@@ -1,0 +1,29 @@
+<div class="page-header">
+  <%= link_to version_tests_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_version_test_path(@version_test), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show version_test</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Obtained result:</dt>
+  <dd><%= @version_test.obtained_result %></dd>
+
+  <dt>Impact:</dt>
+  <dd><%= @version_test.impact %></dd>
+
+  <dt>Check:</dt>
+  <dd><%= @version_test.check %></dd>
+
+  <dt>Version:</dt>
+  <dd><%= @version_test.version %></dd>
+
+  <dt>Text:</dt>
+  <dd><%= @version_test.test %></dd>
+
+</dl>

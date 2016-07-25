@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  obtained_result: MyText
+  impact: MyText
+  check: false
+  version_id: 
+  text_id: 
+
+two:
+  obtained_result: MyText
+  impact: MyText
+  check: false
+  version_id: 
+  text_id: 
