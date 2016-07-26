@@ -30,7 +30,7 @@
 <br>
   <div class="btn-group" role="group" aria-label="...">
     <%= link_to 'Tests', versiontests_path(id: @version.id), class: 'btn btn-default', id: 'test' , remote: true  %>
-    <%= link_to 'Issues', issues_path(id: @animal), class: 'btn btn-default', id: 'issue', remote: true  %>
+    <%= link_to 'Issues', versionissues_path(id: @version.id), class: 'btn btn-default', id: 'issue', remote: true  %>
   </div>
   <br>
   <div id="version_content">

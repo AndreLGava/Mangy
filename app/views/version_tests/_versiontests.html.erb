@@ -31,7 +31,7 @@
                 <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                    <span class="caret"></span>
                 </button>
-                <ul class="dropdown-menu">
+                <ul class="dropdown-menu dropdown-menu-right">
                   <li><%= link_to 'Delete Item', version_test, method: :delete, data: { confirm: 'Are you sure?' } %></li>
                   <li><%= link_to 'Edit Item', edit_version_test_path(version_test), remote: true, data: { 'toggle' => 'modal', 'target' => '#modal' }%></li>
                   <li role="separator" class="divider"></li>

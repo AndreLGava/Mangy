@@ -1,2 +1,3 @@
   $('#modal').modal('hide');
+  $("#version_content").html("<%= escape_javascript(render :partial => 'version_tests/versiontests') %>");
   alert('Version Test was successfully updated.');

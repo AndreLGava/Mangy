@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   root to: "versions#index"
 
   get 'versiontests' , to: 'versions#versiontests', as: :versiontests
+  get 'versionissues' , to: 'versions#versionissues', as: :versionissues
 end

@@ -1,5 +1,5 @@
 class VersionsController < ApplicationController
-  before_action :set_version, only: [:show, :edit, :update, :destroy, :versiontests]
+  before_action :set_version, only: [:show, :edit, :update, :destroy, :versiontests, :versionissues]
   after_action :set_new_version, only: [:create]
 
   # GET /versions
@@ -15,6 +15,10 @@ class VersionsController < ApplicationController
 
   def versiontests
     @version_tests = @version.version_tests
+  end
+
+  def versionissues
+    @version_issues = @version.issues.order(id: :desc)
   end
 
   # GET /versions/new
