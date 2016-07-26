@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160725172935) do
+ActiveRecord::Schema.define(version: 20160726142311) do
+
+  create_table "issues", force: :cascade do |t|
+    t.string   "link"
+    t.boolean  "done",               default: false
+    t.boolean  "available_for_test", default: false
+    t.boolean  "real_problem",       default: false
+    t.integer  "version_test_id"
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+  end
+
+  add_index "issues", ["version_test_id"], name: "index_issues_on_version_test_id"
 
   create_table "tests", force: :cascade do |t|
     t.text     "description"

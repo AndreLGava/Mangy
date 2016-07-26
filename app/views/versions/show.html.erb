@@ -40,13 +40,13 @@
             <th>Obtained result</th>
             <th>Impact</th>
             <th>Check</th>
-        <th></th>
-        <th></th>
+            <th>Options</th>
       </tr>
     </thead>
 
     <tbody>
       <%= content_tag_for(:tr, @version_tests) do |version_test| %>
+          <tr class="<%= version_test.done %>">
             <td><%= version_test.test.description %></td>
             <td><%= version_test.test.settings %></td>
             <td><%= version_test.test.file %></td>
@@ -54,7 +54,22 @@
             <td><%= version_test.test.expected_result %></td>
             <td><%= version_test.obtained_result %></td>
             <td><%= version_test.impact %></td>
-            <td><%= version_test.check %></td>
+            <td><%= check_box(version_test.check,version_test.check) %></td>
+            <td>              
+              <!-- Single button -->
+              <div class="btn-group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Delete Item</a></li>
+                  <li><a href="#">Edit Item</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="#">Create an Issue</a></li>
+                </ul>
+              </div>
+            </td>
+          </tr>
       <% end %>
     </tbody>
   </table>

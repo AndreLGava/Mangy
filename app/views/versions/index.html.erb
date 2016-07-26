@@ -25,6 +25,7 @@
 
     <tbody>
       <%= content_tag_for(:tr, @versions) do |version| %>
+          <tr class="<%= version.done_version %>">
             <td><%= version.responsable %></td>
             <td><%= version.used_user %></td>
             <td><%= version.system %></td>
@@ -33,8 +34,9 @@
             <td><%= version.start %></td>
             <td><%= version.finish %></td>
             <td><%= link_to 'Show', version %></td>
-        <td><%= link_to 'Edit', edit_version_path(version) %></td>
-        <td><%= link_to 'Destroy', version, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Edit', edit_version_path(version) %></td>
+            <td><%= link_to 'Destroy', version, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
       <% end %>
     </tbody>
   </table>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  link: MyString
+  done: false
+  available_for_test: false
+  real_problem: false
+  version_test_id: 
+
+two:
+  link: MyString
+  done: false
+  available_for_test: false
+  real_problem: false
+  version_test_id: 

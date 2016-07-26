@@ -72,7 +72,7 @@ class VersionsController < ApplicationController
     def set_new_version
       @tests = Test.all
       @tests.each do |t|
-        VersionTest.create(test_id: t.id, version_id: @version.id)
+        VersionTest.create(obtained_result: '--', impact: '--', test_id: t.id, version_id: @version.id)
       end
     end
 

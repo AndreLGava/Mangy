@@ -3,7 +3,7 @@ class CreateVersionTests < ActiveRecord::Migration
     create_table :version_tests do |t|
       t.text :obtained_result
       t.text :impact
-      t.boolean :check
+      t.boolean :check, default: false
       t.references :version, index: true, foreign_key: true
       t.references :test, index: true, foreign_key: true
 
