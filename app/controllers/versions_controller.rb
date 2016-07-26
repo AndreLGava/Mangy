@@ -1,5 +1,5 @@
 class VersionsController < ApplicationController
-  before_action :set_version, only: [:show, :edit, :update, :destroy]
+  before_action :set_version, only: [:show, :edit, :update, :destroy, :versiontests]
   after_action :set_new_version, only: [:create]
 
   # GET /versions
@@ -11,7 +11,10 @@ class VersionsController < ApplicationController
   # GET /versions/1
   # GET /versions/1.json
   def show
-    @version_tests = VersionTest.where(version_id: @version.id)
+  end
+
+  def versiontests
+    @version_tests = @version.version_tests
   end
 
   # GET /versions/new

@@ -14,6 +14,7 @@ class IssuesController < ApplicationController
 
   # GET /issues/new
   def new
+    @version_test = VersionTest.find(params[:version_test])
     @issue = Issue.new
   end
 
@@ -25,14 +26,16 @@ class IssuesController < ApplicationController
   # POST /issues.json
   def create
     @issue = Issue.new(issue_params)
-
+    @version_test = @issue.version_test
     respond_to do |format|
       if @issue.save
         format.html { redirect_to @issue, notice: 'Issue was successfully created.' }
         format.json { render :show, status: :created, location: @issue }
+        format.js { render 'close' }
       else
         format.html { render :new }
         format.json { render json: @issue.errors, status: :unprocessable_entity }
+        format.js { render 'new' }
       end
     end
   end
@@ -44,9 +47,11 @@ class IssuesController < ApplicationController
       if @issue.update(issue_params)
         format.html { redirect_to @issue, notice: 'Issue was successfully updated.' }
         format.json { render :show, status: :ok, location: @issue }
+        format.js { render 'close' }
       else
         format.html { render :edit }
         format.json { render json: @issue.errors, status: :unprocessable_entity }
+        format.js { render 'new' }
       end
     end
   end

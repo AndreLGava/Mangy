@@ -1,4 +1,4 @@
-<%= simple_form_for @issue, html: { class: "form-horizontal", role: "form" } do |f| %>
+<%= simple_form_for @issue, html: { class: "form-horizontal", role: "form" }, remote: true do |f| %>
   <% if @issue.errors.any? %>
     <div class="alert alert-danger alert-dismissable" role="alert">
       <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
@@ -36,12 +36,7 @@
       <%= f.check_box :real_problem, class: "form-control" %>
     </div>
   </div>
-  <div class="form-group">
-    <%= f.label :version_test, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
-      <%= f.association :version_test, class: "form-control" %>
-    </div>
-  </div>
+  <%= f.input :version_test_id, :as => :hidden, :input_html => { :value => @version_test.id } %>
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
       <%= f.submit class: "btn btn-primary" %>

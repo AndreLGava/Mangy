@@ -44,9 +44,11 @@ class VersionTestsController < ApplicationController
       if @version_test.update(version_test_params)
         format.html { redirect_to @version_test, notice: 'Version test was successfully updated.' }
         format.json { render :show, status: :ok, location: @version_test }
+        format.js { render 'close' }
       else
         format.html { render :edit }
         format.json { render json: @version_test.errors, status: :unprocessable_entity }
+        format.js { render 'edit' }
       end
     end
   end
@@ -54,9 +56,10 @@ class VersionTestsController < ApplicationController
   # DELETE /version_tests/1
   # DELETE /version_tests/1.json
   def destroy
+    @id = @version_test.version_id
     @version_test.destroy
     respond_to do |format|
-      format.html { redirect_to version_tests_url, notice: 'Version test was successfully destroyed.' }
+      format.html { redirect_to :back, notice: 'Version test was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
