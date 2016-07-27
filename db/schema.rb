@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20160726142311) do
     t.string   "link"
     t.boolean  "done",               default: false
     t.boolean  "available_for_test", default: false
-    t.boolean  "real_problem",       default: false
+    t.boolean  "real_problem",       default: true
     t.integer  "version_test_id"
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
@@ -38,11 +38,11 @@ ActiveRecord::Schema.define(version: 20160726142311) do
   create_table "version_tests", force: :cascade do |t|
     t.text     "obtained_result"
     t.text     "impact"
-    t.boolean  "check"
+    t.boolean  "check",           default: false
     t.integer  "version_id"
     t.integer  "test_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
   add_index "version_tests", ["test_id"], name: "index_version_tests_on_test_id"

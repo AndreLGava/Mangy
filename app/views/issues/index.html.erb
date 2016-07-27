@@ -3,7 +3,7 @@
     <span class="glyphicon glyphicon-plus"></span>
     New Issue
   <% end %>
-  <h1>Listing issues</h1>
+  <h1>Listing opened issues</h1>
 </div>
 
 <div class="table-responsive">
@@ -16,21 +16,19 @@
             <th>Real problem</th>
             <th>Version test</th>
             <th></th>
-        <th></th>
-        <th></th>
       </tr>
     </thead>
 
     <tbody>
       <%= content_tag_for(:tr, @issues) do |issue| %>
-            <td><%= issue.link %></td>
+          <tr class="<%= issue.status %>">
+            <td><%= link_to issue.link, issue.link, target: '_blank' %></td>
             <td><%= issue.done %></td>
             <td><%= issue.available_for_test %></td>
             <td><%= issue.real_problem %></td>
-            <td><%= issue.version_test %></td>
+            <td><%= issue.version_test.test.description %></td>
             <td><%= link_to 'Show', issue %></td>
-        <td><%= link_to 'Edit', edit_issue_path(issue) %></td>
-        <td><%= link_to 'Destroy', issue, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
       <% end %>
     </tbody>
   </table>
