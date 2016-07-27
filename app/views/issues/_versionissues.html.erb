@@ -6,6 +6,7 @@
             <th>Done</th>
             <th>Available for test</th>
             <th>Real problem</th>
+            <th>Action</th>
       </tr>
     </thead>
 
@@ -16,6 +17,17 @@
             <td><%= issue.done %></td>
             <td><%= issue.available_for_test %></td>
             <td><%= issue.real_problem %></td>
+            <td>              
+              <!-- Single button -->
+              <div class="btn-group">
+                <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-right">
+                  <li><%= link_to 'Edit Issue', edit_issue_path(issue), remote: true, data: { 'toggle' => 'modal', 'target' => '#modal' }%></li>
+                </ul>
+              </div>
+            </td>
           </tr>
       <% end %>
     </tbody>

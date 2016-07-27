@@ -4,7 +4,7 @@ class IssuesController < ApplicationController
   # GET /issues
   # GET /issues.json
   def index
-    @issues = Issue.where(done: false)
+    @issues = Issue.where(done: false).order(id: :desc)
   end
 
   # GET /issues/1
@@ -20,6 +20,7 @@ class IssuesController < ApplicationController
 
   # GET /issues/1/edit
   def edit
+    @version_test = VersionTest.find(@issue.version_test_id)
   end
 
   # POST /issues
@@ -43,15 +44,18 @@ class IssuesController < ApplicationController
   # PATCH/PUT /issues/1
   # PATCH/PUT /issues/1.json
   def update
+    
+    @version_issues = @issue.version_test.version.issues.order(id: :desc)
+
     respond_to do |format|
       if @issue.update(issue_params)
         format.html { redirect_to @issue, notice: 'Issue was successfully updated.' }
         format.json { render :show, status: :ok, location: @issue }
-        format.js { render 'close' }
+         format.js { render 'versionissues', version_issues: @version_issues }
       else
         format.html { render :edit }
         format.json { render json: @issue.errors, status: :unprocessable_entity }
-        format.js { render 'new' }
+         format.js { render 'edit' }
       end
     end
   end

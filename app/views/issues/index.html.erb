@@ -14,7 +14,8 @@
             <th>Done</th>
             <th>Available for test</th>
             <th>Real problem</th>
-            <th>Version test</th>
+            <th>Test</th>
+            <th>Version</th>
             <th></th>
       </tr>
     </thead>
@@ -27,6 +28,7 @@
             <td><%= issue.available_for_test %></td>
             <td><%= issue.real_problem %></td>
             <td><%= issue.version_test.test.description %></td>
+            <td><%= link_to "#{issue.version_test.version.system} - #{issue.version_test.version.start} - #{issue.version_test.version.finish}", version_path(issue.version_test.version.id) %></td>
             <td><%= link_to 'Show', issue %></td>
           </tr>
       <% end %>
