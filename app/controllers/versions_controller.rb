@@ -77,7 +77,7 @@ class VersionsController < ApplicationController
     end
 
     def set_new_version
-      @tests = Test.all
+      @tests = Test.rank(:row_order).all
       @tests.each do |t|
         VersionTest.create(obtained_result: '--', impact: '--', test_id: t.id, version_id: @version.id)
       end
