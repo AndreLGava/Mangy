@@ -10,6 +10,7 @@ class VersionTestsController < ApplicationController
 
   def new
     @version_test = VersionTest.new
+    @version = params['version']
   end
 
   def edit
@@ -17,15 +18,18 @@ class VersionTestsController < ApplicationController
 
   def create
     @version_test = VersionTest.new(version_test_params)
-
+    @version_tests = @version_test.version.version_tests
+    @version = @version_test.version_id
     respond_to do |format|
       if @version_test.save
         format.html { redirect_to @version_test, notice: 'Version test was successfully created.' }
         format.json { render :show, status: :created, location: @version_test }
+        format.js { render 'versiontests', version: @version }
       else
         format.html { render :new }
         format.json { render json: @version_test.errors, status: :unprocessable_entity }
       end
+        format.js { render 'new' }
     end
   end
 

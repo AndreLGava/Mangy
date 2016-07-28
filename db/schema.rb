@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20160726142311) do
 
   create_table "tests", force: :cascade do |t|
     t.text     "description"
+    t.integer  "row_order"
     t.text     "settings"
     t.string   "file"
     t.text     "expected_result"

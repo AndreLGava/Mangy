@@ -27,7 +27,10 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'simple_form'
 gem 'bootstrap-generators', '~> 3.3.4'
 gem 'pry', '~> 0.10.4'
-
+gem "select2-rails"
+gem 'ranked-model'
+gem 'jquery-ui-rails'
+gem 'awesome_print', :require => 'ap'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

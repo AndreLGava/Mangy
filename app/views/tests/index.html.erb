@@ -6,8 +6,8 @@
   <h1>Listing tests</h1>
 </div>
 
-<div class="table-responsive">
-  <table class="table table-striped table-bordered table-hover">
+<div class="table-responsive" >
+  <table class="table table-striped table-bordered table-hover" id="sortable">
     <thead>
       <tr>
             <th>Description</th>
@@ -22,15 +22,17 @@
     </thead>
 
     <tbody>
-      <%= content_tag_for(:tr, @tests) do |test| %>
+      <% @tests.each do |test| %>
+        <tr data-item-id=<%= "#{test.id}" %> class="item">
             <td><%= test.description %></td>
             <td><%= test.settings %></td>
             <td><%= test.file %></td>
             <td><%= test.expected_result %></td>
             <td><%= test.status %></td>
             <td><%= link_to 'Show', test %></td>
-        <td><%= link_to 'Edit', edit_test_path(test) %></td>
-        <td><%= link_to 'Destroy', test, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Edit', edit_test_path(test) %></td>
+            <td><%= link_to 'Destroy', test, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
       <% end %>
     </tbody>
   </table>

@@ -2,6 +2,7 @@ class CreateTests < ActiveRecord::Migration
   def change
     create_table :tests do |t|
       t.text :description
+      t.integer :row_order
       t.text :settings
       t.string :file
       t.text :expected_result

@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
   resources :issues
-  resources :issues
-  resources :version_tests
-  resources :versions
   resources :version_tests
   resources :versions
   resources :tests
@@ -10,4 +7,8 @@ Rails.application.routes.draw do
 
   get 'versiontests' , to: 'versions#versiontests', as: :versiontests
   get 'versionissues' , to: 'versions#versionissues', as: :versionissues
+
+  resources :tests do
+    post :update_row_order, on: :collection
+  end
 end

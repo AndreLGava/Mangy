@@ -4,9 +4,15 @@ class TestsController < ApplicationController
   # GET /tests
   # GET /tests.json
   def index
-    @tests = Test.all
+    @tests = Test.rank(:row_order).all
   end
+  def update_row_order
+    @test = Test.find(test_params[:test_id])
+    @test.row_order_position = test_params[:row_order_position]
+    @test.save
 
+    render nothing: true # this is a POST action, updates sent via AJAX, no view rendered
+  end
   # GET /tests/1
   # GET /tests/1.json
   def show
@@ -69,6 +75,6 @@ class TestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def test_params
-      params.require(:test).permit(:description, :settings, :file, :expected_result, :status)
+      params.require(:test).permit(:test_id, :description, :row_order_position, :settings, :file, :expected_result, :status)
     end
 end
