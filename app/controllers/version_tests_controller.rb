@@ -5,6 +5,23 @@ class VersionTestsController < ApplicationController
     @version_tests = VersionTest.all
   end
 
+  def check
+    @test = VersionTest.find(params[:id])
+    @check = params[:checked]
+    @version = Version.find(@test.version_id)
+    @version_tests = @version.version_tests
+      respond_to do |format|
+        if @test.update_attributes(check: @check)
+          format.html { redirect_to @version_test, notice: 'Version test was successfully updated.' }
+          format.json { render :show, status: :ok, location: @test }
+          format.js { render 'versiontests', version_tests: @version_tests }
+        else
+          format.js { render 'edit' }
+        end
+      end
+
+  end
+
   def show
   end
 
@@ -14,6 +31,7 @@ class VersionTestsController < ApplicationController
   end
 
   def edit
+    @version = @version_test.version_id
   end
 
   def create

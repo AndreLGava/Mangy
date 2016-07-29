@@ -71,7 +71,9 @@
       <%= f.input_field :check, as: :boolean, label: false, class: "form-control" %>
     </div>
   </div>
+  
   <%= f.input :version_id, as: :hidden, input_html: { value: @version }  %>
+
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
       <%= f.submit class: "btn btn-primary" %>

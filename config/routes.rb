@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   get 'versiontests' , to: 'versions#versiontests', as: :versiontests
   get 'versionissues' , to: 'versions#versionissues', as: :versionissues
+  get 'check' , to: 'version_tests#check', as: :check
 
   resources :tests do
     post :update_row_order, on: :collection

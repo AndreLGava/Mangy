@@ -2,6 +2,7 @@ class Issue < ActiveRecord::Base
   belongs_to :version_test
 
   validates :link, presence: true, uniqueness: true
+  validates :version_test_id, presence: true
 
 
     def status
