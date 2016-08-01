@@ -12,8 +12,6 @@ class VersionTestsController < ApplicationController
     @version_tests = @version.version_tests
       respond_to do |format|
         if @test.update_attributes(check: @check)
-          format.html { redirect_to @version_test, notice: 'Version test was successfully updated.' }
-          format.json { render :show, status: :ok, location: @test }
           format.js { render 'versiontests', version_tests: @version_tests }
         else
           format.js { render 'edit' }
@@ -27,7 +25,7 @@ class VersionTestsController < ApplicationController
 
   def new
     @version_test = VersionTest.new
-    @version = params['version']
+    @version = params[:version]
   end
 
   def edit
