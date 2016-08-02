@@ -31,7 +31,7 @@
             <td><%= version_test.test.expected_result %></td>
             <td><%= version_test.obtained_result %></td>
             <td><%= version_test.impact %></td>
-            <td><%= check_box_tag( "version_test_#{version_test.id}", version_test.id, version_test.check, { onchange: "check(#{version_test.id}, this)"})  %></td>
+            <td><%= check_box_tag( "version_test_#{version_test.id}", version_test.id, version_test.check, { onchange: "check(#{version_test.id}, this , 'check')"})  %></td>
             <td>              
               <!-- Single button -->
               <div class="btn-group">
@@ -52,17 +52,3 @@
   </table>
 </div>
 
-<script>
-  function check(version_test, element) {
-    var checked; 
-    if ($(element).is(':checked')) {
-      checked = true;
-    } else {
-      checked = false;
-    } 
-    $.ajax({
-        url: "/check",
-        data: { id: version_test, checked: checked }
-     });     
-  }
-</script>

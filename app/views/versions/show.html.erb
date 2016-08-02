@@ -55,5 +55,13 @@
   <script>
     $(document).ready(function(){ 
         $("#test").click(); 
-    })
+    });
+
+    function check(version_test, element, caminho) {
+      var checked = $(element).is(':checked'); 
+      $.ajax({
+          url: "/"+caminho,
+          data: { id: version_test, checked: checked }
+       });     
+    }
   </script>
