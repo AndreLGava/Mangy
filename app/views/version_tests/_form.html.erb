@@ -48,7 +48,7 @@
     <div class="form-group">
       <%= f.label :test, class: "col-sm-2 control-label" %>
       <div class="col-sm-10">
-        <%= f.association :test, label_method: :description, value_method: :id, include_blank: false, label: false, class: "form-control" %>
+        <%= f.association :test, collection: @test_available, label_method: :description, value_method: :id, include_blank: false, label: false, class: "form-control" %>
       </div>
     </div>
   <% end %>

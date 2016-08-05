@@ -25,6 +25,7 @@ class VersionTestsController < ApplicationController
   def new
     @version_test = VersionTest.new
     @version = params[:version]
+    @test_available = Test.all - VersionTest.all.map(&:test)
   end
 
   def edit

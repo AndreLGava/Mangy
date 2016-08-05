@@ -2,6 +2,7 @@
   <table class="table table-striped table-hover">
     <thead>
       <tr>
+            <th>From Test</th>
             <th>Link</th>
             <th>Done</th>
             <th>Available for test</th>
@@ -13,6 +14,7 @@
     <tbody>
       <%= content_tag_for(:tr, @version_issues) do |issue| %>
           <tr class="<%= issue.status %>">
+            <td><%= issue.version_test.test.description %></td>
             <td><%= link_to issue.link, issue.link, target: "_blank" %></td>
             <td><%= issue.done %></td>
             <td><%= issue.available_for_test %></td>

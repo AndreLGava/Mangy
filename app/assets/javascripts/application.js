@@ -22,4 +22,6 @@
 //= require jquery-ui/effect-highlight
 //= require bootstrap-sprockets
 //= require select2-full
+//= require alertify
+//= require alertify/confirm-modal
 

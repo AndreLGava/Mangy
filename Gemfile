@@ -31,6 +31,8 @@ gem "select2-rails"
 gem 'ranked-model'
 gem 'jquery-ui-rails'
 gem 'awesome_print', :require => 'ap'
+gem 'alertifyjs-rails'
+gem 'seed_dump'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
