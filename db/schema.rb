@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20160726142311) do
   add_index "issues", ["version_test_id"], name: "index_issues_on_version_test_id"
 
   create_table "tests", force: :cascade do |t|
+    t.string   "part"
     t.text     "description"
     t.integer  "row_order"
     t.text     "settings"

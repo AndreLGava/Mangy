@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">Descrição</Data></Cell>
+        <Cell><Data ss:Type="String">Configurações</Data></Cell>
+        <Cell><Data ss:Type="String">Arquivo</Data></Cell>
+        <Cell><Data ss:Type="String">Status</Data></Cell>
+        <Cell><Data ss:Type="String">Parte</Data></Cell>
+        <Cell><Data ss:Type="String">Resultado Esperado</Data></Cell>
+        <Cell><Data ss:Type="String">Resultado Obtido</Data></Cell>
+        <Cell><Data ss:Type="String">Impacto</Data></Cell>
+        <Cell><Data ss:Type="String">Check</Data></Cell>
+      </Row>
+    <% @version_tests.each do |version_test| %>
+      <Row>
+        <Cell><Data ss:Type="String"> <%= version_test.test.description %></Data></Cell>
+        <Cell><Data ss:Type="String"> <%= version_test.test.settings %></Data></Cell>
+        <Cell><Data ss:Type="String"> <%= version_test.test.file %></Data></Cell>
+        <Cell><Data ss:Type="String"> <%= version_test.test.status %></Data></Cell>
+        <Cell><Data ss:Type="String"> <%= version_test.test.part %></Data></Cell>
+        <Cell><Data ss:Type="String"> <%= version_test.test.expected_result %></Data></Cell>
+        <Cell><Data ss:Type="String"> <%= version_test.obtained_result %></Data></Cell>
+        <Cell><Data ss:Type="String"> <%= version_test.impact %></Data></Cell>
+        <Cell><Data ss:Type="String"> <%= version_test.check %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

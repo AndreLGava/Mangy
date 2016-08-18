@@ -1,5 +1,5 @@
 class VersionsController < ApplicationController
-  before_action :set_version, only: [:show, :edit, :update, :destroy, :versiontests, :versionissues]
+  before_action :set_version, only: [:show, :edit, :update, :destroy, :versiontests, :versionissues, :download]
   after_action :set_new_version, only: [:create]
 
   # GET /versions
@@ -15,6 +15,17 @@ class VersionsController < ApplicationController
 
   def versiontests
     @version_tests = @version.version_tests
+    @done          = @version.version_tests.where(check: true).count
+    @all           = @version_tests.count
+    @to_do         = @version.version_tests.where(check: false).count
+  end
+
+  def download
+    @version_tests = @version.version_tests
+    respond_to do |format|
+     # format.csv { send_data @version_tests.to_csv }
+      format.xls  #{ send_data @version_tests.to_csv(col_sep: "\t") }
+    end
   end
 
   def versionissues

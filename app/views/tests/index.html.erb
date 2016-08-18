@@ -16,6 +16,7 @@
             <th>File</th>
             <th>Expected result</th>
             <th>Status</th>
+            <th>Part</th>
             <th></th>
         <th></th>
         <th></th>
@@ -31,6 +32,7 @@
             <td><%= test.file %></td>
             <td><%= test.expected_result %></td>
             <td><%= test.status %></td>
+            <td><%= test.part %></td>
             <td><%= link_to 'Show', test %></td>
             <td><%= link_to 'Edit', edit_test_path(test) %></td>
             <td><%= link_to 'Destroy', test, method: :delete, data: { confirm: 'Are you sure?' } %></td>

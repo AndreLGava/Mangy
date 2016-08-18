@@ -3,11 +3,12 @@ class Test < ActiveRecord::Base
 	include RankedModel
   	ranks :row_order
 
-	has_many :version_tests
-	
+	has_many :version_tests, dependent: :destroy
+
 	validates :description, presence: true
 	validates :expected_result, presence: true
 	validates :status, presence: true
+	validates :part, presence: true
 
 	before_create :set_row_order
 

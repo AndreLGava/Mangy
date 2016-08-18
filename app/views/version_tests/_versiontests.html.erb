@@ -4,6 +4,11 @@
     Add Test
   <% end %>
   <h3>Tests</h3>
+  <div class="btn-group" role="group" aria-label="...">
+    <button type="button" class="btn btn-primary">All: <%= @all %></button>
+    <button type="button" class="btn btn-info">Done: <%= @done %></button>
+    <button type="button" class="btn btn-danger">To do: <%= @to_do %></button>
+  </div>
 </div>
 <div class="table-responsive">
   <table class="table table-striped table-hover">
@@ -14,6 +19,7 @@
             <th>Settings</th>
             <th>File</th>
             <th>Status</th>
+            <th>Part</th>
             <th>Expected result</th>
             <th>Obtained result</th>
             <th>Impact</th>
@@ -30,6 +36,7 @@
             <td><%= version_test.test.settings %></td>
             <td><%= version_test.test.file %></td>
             <td><%= version_test.test.status %></td>
+            <td><%= version_test.test.part %></td>
             <td><%= version_test.test.expected_result %></td>
             <td><%= version_test.obtained_result %></td>
             <td><%= version_test.impact %></td>
