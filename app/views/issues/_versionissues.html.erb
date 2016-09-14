@@ -5,6 +5,7 @@
             <th>From Part</th>
             <th>From Test</th>
             <th>Link</th>
+            <th>Description</th>
             <th>Done</th>
             <th>Available for test</th>
             <th>Real problem</th>
@@ -18,6 +19,7 @@
             <td><%= issue.version_test.test.part %></td>
             <td><%= issue.version_test.test.description %></td>
             <td><%= link_to issue.link, issue.link, target: "_blank" %></td>
+            <td><%= issue.description %></td>
             <td><%= issue.done %></td>
             <td><%= issue.available_for_test %></td>
             <td><%= issue.real_problem %></td>

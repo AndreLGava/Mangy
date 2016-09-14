@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160726142311) do
+ActiveRecord::Schema.define(version: 20160914182428) do
 
   create_table "issues", force: :cascade do |t|
     t.string   "link"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20160726142311) do
     t.integer  "version_test_id"
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
+    t.text     "description"
   end
 
   add_index "issues", ["version_test_id"], name: "index_issues_on_version_test_id"

@@ -2,6 +2,7 @@
 <h3>Related Issues To This Test</h3>
   <tr>
     <td>Date</td>
+    <td>Description</td>
     <td>Link</td>
   </tr>
   <% if !@linked_issues.nil? %>
@@ -9,6 +10,9 @@
       <tr>
         <td>
           <%= h.updated_at.to_date %>
+        </td>
+        <td>
+          <%= h.description %>
         </td>
         <td>
           <%= link_to h.link, h.link, target: "blank" %>
@@ -20,7 +24,7 @@
         <td>
           <%= Time.now.to_date %>
         </td>
-        <td>
+        <td colspan="2">
           <%= "There is no issues related to this test yet!" %>
         </td>
       </tr>
