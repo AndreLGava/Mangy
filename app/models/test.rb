@@ -4,6 +4,7 @@ class Test < ActiveRecord::Base
   	ranks :row_order
 
 	has_many :version_tests, dependent: :destroy
+	has_many :issues, :through => :version_tests
 
 	validates :description, presence: true
 	validates :expected_result, presence: true

@@ -1,0 +1,28 @@
+<table class="table table-striped">
+<h3>Related Issues To This Test</h3>
+  <tr>
+    <td>Date</td>
+    <td>Link</td>
+  </tr>
+  <% if !@linked_issues.nil? %>
+    <% @linked_issues.each do |h| %>
+      <tr>
+        <td>
+          <%= h.updated_at.to_date %>
+        </td>
+        <td>
+          <%= link_to h.link, h.link, target: "blank" %>
+        </td>
+      </tr>
+    <% end %>
+    <% else %>
+      <tr>
+        <td>
+          <%= Time.now.to_date %>
+        </td>
+        <td>
+          <%= "There is no issues related to this test yet!" %>
+        </td>
+      </tr>
+    <% end %>
+</table>

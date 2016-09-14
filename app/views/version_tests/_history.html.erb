@@ -1,0 +1,17 @@
+<table class="table table-striped">
+<h3>History</h3>
+  <tr>
+    <td>Date</td>
+    <td>Obtained Result</td>
+  </tr>
+  <% @history.each do |h| %>
+    <tr>
+      <td>
+        <%= h.updated_at.to_date %>
+      </td>
+      <td>
+        <%= h.obtained_result %>
+      </td>
+    </tr>
+  <% end %>
+</table>

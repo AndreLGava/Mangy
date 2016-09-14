@@ -50,6 +50,8 @@
                 <ul class="dropdown-menu dropdown-menu-right">
                   <li><%= link_to 'Delete Item', version_test, method: :delete, data: { confirm: 'Are you sure?' } %></li>
                   <li><%= link_to 'Edit Item', edit_version_test_path(version_test), remote: true, data: { 'toggle' => 'modal', 'target' => '#modal' }%></li>
+                  <li><%= link_to 'Show History', history_path(test: version_test.test.id, id: version_test.version.id), remote: true, data: { 'toggle' => 'modal', 'target' => '#modal' }%></li>
+                  <li><%= link_to 'Show Issues', linked_issues_path(test: version_test.test.id, id: version_test.version.id), remote: true, data: { 'toggle' => 'modal', 'target' => '#modal' }%></li>
                   <li role="separator" class="divider"></li>
                   <li><%= link_to 'Create Issue', new_issue_path(version_test: version_test.id), remote: true, data: { 'toggle' => 'modal', 'target' => '#modal' } %></li>
                 </ul>

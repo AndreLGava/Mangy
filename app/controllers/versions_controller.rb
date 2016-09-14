@@ -1,5 +1,5 @@
 class VersionsController < ApplicationController
-  before_action :set_version, only: [:show, :edit, :update, :destroy, :versiontests, :versionissues, :download]
+  before_action :set_version, only: [:show, :edit, :update, :destroy, :versiontests, :versionissues, :download, :history]
   after_action :set_new_version, only: [:create]
 
   # GET /versions
@@ -15,13 +15,14 @@ class VersionsController < ApplicationController
 
   def versiontests
     @version_tests = @version.version_tests
+    #@version_tests = VersionTest.where(version_id: @version).includes('test').order('tests.part ASC')
     @done          = @version.version_tests.where(check: true).count
     @all           = @version_tests.count
     @to_do         = @version.version_tests.where(check: false).count
   end
 
   def download
-    @version_tests = @version.version_tests
+    @version_tests = VersionTest.where(version_id: @version).includes('test').order('tests.part ASC')
     respond_to do |format|
      # format.csv { send_data @version_tests.to_csv }
       format.xls  #{ send_data @version_tests.to_csv(col_sep: "\t") }
@@ -30,6 +31,16 @@ class VersionsController < ApplicationController
 
   def versionissues
     @version_issues = @version.issues.order(id: :desc)
+  end
+
+  def history
+    @test = params[:test]
+    @history = VersionTest.where(test_id: @test).last(10).reverse
+  end
+
+  def linked_issues
+    @test = params[:test]
+    @linked_issues = Test.find(@test).issues.reverse
   end
 
   # GET /versions/new

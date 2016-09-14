@@ -10,11 +10,11 @@ class VersionTestsController < ApplicationController
     @check = params[:checked]
     @version = Version.find(@test.version_id)
     @version_tests = @version.version_tests
-    @done          = @version.version_tests.where(check: true).count
-    @all           = @version_tests.count
-    @to_do         = @version.version_tests.where(check: false).count
       respond_to do |format|
         if @test.update_attributes(check: @check)
+          @done          = @version.version_tests.where(check: true).count
+          @all           = @version_tests.count
+          @to_do         = @version.version_tests.where(check: false).count
           format.js { render 'versiontests', version_tests: @version_tests }
         else
           format.js { render 'edit' }
@@ -28,7 +28,7 @@ class VersionTestsController < ApplicationController
   def new
     @version_test = VersionTest.new
     @version = params[:version]
-    @test_available = Test.all - VersionTest.all.map(&:test)
+    @test_available = Test.all - Version.find(@version).version_tests.all.map(&:test)
   end
 
   def edit
@@ -57,6 +57,9 @@ class VersionTestsController < ApplicationController
     @version_tests = @version.version_tests
     respond_to do |format|
       if @version_test.update(version_test_params)
+          @done          = @version.version_tests.where(check: true).count
+          @all           = @version_tests.count
+          @to_do         = @version.version_tests.where(check: false).count
         format.html { redirect_to @version_test, notice: 'Version test was successfully updated.' }
         format.json { render :show, status: :ok, location: @version_test }
         format.js { render 'versiontests', version_tests: @version_tests }
