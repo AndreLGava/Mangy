@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  url: MyString
+  sprint_id: 
+  category_id: 
+  description: MyString
+
+two:
+  url: MyString
+  sprint_id: 
+  category_id: 
+  description: MyString

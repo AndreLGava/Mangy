@@ -31,6 +31,15 @@ class VersionTestsController < ApplicationController
     @test_available = Test.all - Version.find(@version).version_tests.all.map(&:test)
   end
 
+  def set_all_tests
+    @version = params[:version]
+    @tests = Test.all - Version.find(@version).version_tests.all.map(&:test)
+    @tests.each do |t|
+      VersionTest.create(obtained_result: '--', impact: '--', test_id: t.id, version_id: @version)
+    end
+    redirect_to :back
+  end
+
   def edit
     @version = @version_test.version_id
   end

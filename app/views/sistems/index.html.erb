@@ -1,0 +1,29 @@
+<div class="page-header">
+  <%= link_to new_sistem_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Sistem
+  <% end %>
+  <h1>Listing sistems</h1>
+</div>
+
+<div class="table-responsive panel panel-default">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Description</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @sistems) do |sistem| %>
+            <td><%= sistem.description %></td>
+            <td><%= link_to 'Show', sistem %></td>
+        <td><%= link_to 'Edit', edit_sistem_path(sistem) %></td>
+        <td><%= link_to 'Destroy', sistem, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

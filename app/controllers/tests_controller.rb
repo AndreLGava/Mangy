@@ -35,7 +35,7 @@ class TestsController < ApplicationController
     respond_to do |format|
       if @test.save
         format.html { redirect_to @test, notice: 'Test was successfully created.' }
-        format.json { render :show, status: :created, location: @test }
+        format.json { render :new, status: :created, location: @test }
       else
         format.html { render :new }
         format.json { render json: @test.errors, status: :unprocessable_entity }
@@ -75,6 +75,6 @@ class TestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def test_params
-      params.require(:test).permit(:test_id, :description, :row_order_position, :settings, :file, :expected_result, :status, :part)
+      params.require(:test).permit(:test_id, :description, :row_order_position, :settings, :file, :expected_result, :status, :part, :category_id)
     end
 end

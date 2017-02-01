@@ -1,0 +1,35 @@
+<div class="page-header">
+  <%= link_to new_rastreamento_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Rastreamento
+  <% end %>
+  <h1>Listing rastreamentos</h1>
+</div>
+
+<div class="table-responsive panel panel-default">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Time</th>
+            <th>Pessoa</th>
+            <th>Issue</th>
+            <th>Status</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @rastreamentos) do |rastreamento| %>
+            <td><%= rastreamento.time %></td>
+            <td><%= rastreamento.pessoa %></td>
+            <td><%= rastreamento.issue %></td>
+            <td><%= rastreamento.status %></td>
+            <td><%= link_to 'Show', rastreamento %></td>
+        <td><%= link_to 'Edit', edit_rastreamento_path(rastreamento) %></td>
+        <td><%= link_to 'Destroy', rastreamento, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

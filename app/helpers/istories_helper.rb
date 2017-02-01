@@ -1,0 +1,2 @@
+module IstoriesHelper
+end

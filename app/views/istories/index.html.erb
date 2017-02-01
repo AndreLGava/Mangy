@@ -1,0 +1,35 @@
+<div class="page-header">
+  <%= link_to new_istory_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New History
+  <% end %>
+  <h1>Listing Histories</h1>
+</div>
+
+<div class="table-responsive panel panel-default">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Url</th>
+            <th>Sprint</th>
+            <th>Category</th>
+            <th>Description</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @istories) do |istory| %>
+            <td><%= istory.url %></td>
+            <td><%= istory.sprint %></td>
+            <td><%= istory.category %></td>
+            <td><%= istory.description %></td>
+            <td><%= link_to 'Show', istory %></td>
+        <td><%= link_to 'Edit', edit_istory_path(istory) %></td>
+        <td><%= link_to 'Destroy', istory, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

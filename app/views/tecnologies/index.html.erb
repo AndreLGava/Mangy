@@ -1,0 +1,29 @@
+<div class="page-header">
+  <%= link_to new_tecnology_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Tecnology
+  <% end %>
+  <h1>Listing tecnologies</h1>
+</div>
+
+<div class="table-responsive panel panel-default">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Description</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @tecnologies) do |tecnology| %>
+            <td><%= tecnology.description %></td>
+            <td><%= link_to 'Show', tecnology %></td>
+        <td><%= link_to 'Edit', edit_tecnology_path(tecnology) %></td>
+        <td><%= link_to 'Destroy', tecnology, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

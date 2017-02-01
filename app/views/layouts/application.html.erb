@@ -33,7 +33,14 @@
         <ul class="nav navbar-nav navbar-right">
           <li><%= link_to 'Bateria de testes', versions_path %></li>
           <li><%= link_to 'Testes', tests_path %></li>
-        	<li><%= link_to 'Issues', issues_path %></li>
+          <li><%= link_to 'Issues', issues_path %></li>
+          <li><%= link_to 'Categorias', categories_path %></li>
+          <li><%= link_to 'Sistemas', sistems_path %></li>
+          <li><%= link_to 'Histórias', istories_path %></li>
+          <li><%= link_to 'Sprints', sprints_path %></li>
+          <li><%= link_to 'Tecnologias', tecnologies_path %></li>
+          <li><%= link_to 'Pessoas', people_path %></li>
+          <li><%= link_to 'Status', statuses_path %></li>
         </ul>
       </div>
     </div>
@@ -47,6 +54,18 @@
     <% end %>
 
     <%= yield %>
+
+    <script>
+    $(document).ready(function() {
+      $("select").select2({
+          theme: "bootstrap",
+          allowClear: true,
+          cache: true,
+          autocomplete: true,
+          width: "100%"
+      });
+    });
+    </script>
   </div>
 </body>
 </html>

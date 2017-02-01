@@ -1,5 +1,9 @@
 <div class="page-header">
-  <h1>Listing opened issues</h1>
+  <%= link_to new_issue_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Issue
+  <% end %>
+  <h1>Listing Issues</h1>
 </div>
 
 <div class="table-responsive panel panel-default">
@@ -25,7 +29,7 @@
             <td><%= issue.done %></td>
             <td><%= issue.available_for_test %></td>
             <td><%= issue.real_problem %></td>
-            <td><%= issue.version_test.test.description %></td>
+            <td><%= issue.version_test ? issue.version_test.test.description : "" %></td>
             <td><%= link_to "#{issue.version_test.version.system} - #{issue.version_test.version.start} - #{issue.version_test.version.finish}", version_path(issue.version_test.version.id) %></td>
             <td><%= link_to 'Show', issue %></td>
           </tr>

@@ -6,13 +6,29 @@
   <h1>Listing versions</h1>
 </div>
 
+<div class="panel panel-info">
+  <div class="panel-heading">
+    Seguir os sequintes passos para executar os testes:
+  </div>
+  <div class="panel-body">  
+    <ul class="list-group">
+      <li class="list-group-item">Sempre utilizar usuário configurado com todas as permissões em todos os módulos e funcionalidades (sem que seja admin ou suporte)</li>
+      <li class="list-group-item">Pelo menos uma vez na versão testar o software utilizando resolução da tela com 1024px</li>
+      <li class="list-group-item">Pelo menos uma vez na versão testar o software utilizando resolução full screem (máxima suportada pelo computador)</li>
+      <li class="list-group-item">Ao perceber um novo teste criar o mesmo no Mangy e procurar organizar os testes a fim de mante-los juntos (por categoria)</li>
+      <li class="list-group-item">Ao encontrar um bug criar a issue no Jira e copiar o texto e o link da issue para o Mangy, vinculando a issue ao respectivo teste utilizado para encontrar-lo (o bug)</li>
+      <li class="list-group-item">Ao encontrar um bug tentar verificar se o mesmo passou despercebido anteriormente e tentar criar novos casos para que o episódio não volte a se repetir</li>
+    </ul>
+  </div>
+</div>
+
 <div class="table-responsive panel panel-default">
   <table class="table table-striped table-bordered table-hover">
     <thead>
       <tr>
             <th>Responsable</th>
             <th>Used user</th>
-            <th>System</th>
+            <th>Sistem</th>
             <th>Observation</th>
             <th>Impediment</th>
             <th>Start</th>
@@ -28,7 +44,7 @@
           <tr class="<%= version.done_version %>">
             <td><%= version.responsable %></td>
             <td><%= version.used_user %></td>
-            <td><%= version.system %></td>
+            <td><%= version.sistem.description %></td>
             <td><%= version.observation %></td>
             <td><%= version.impediment %></td>
             <td><%= version.start %></td>

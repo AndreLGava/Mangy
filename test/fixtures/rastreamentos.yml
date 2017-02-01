@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  time: 2016-10-11 15:05:25
+  pessoa_id: 
+  issue_id: 
+  status_id: 
+
+two:
+  time: 2016-10-11 15:05:25
+  pessoa_id: 
+  issue_id: 
+  status_id: 

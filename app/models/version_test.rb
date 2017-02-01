@@ -9,6 +9,6 @@ class VersionTest < ActiveRecord::Base
   validates_uniqueness_of :version_id, scope: :test_id
 
   def done
-  	return self.check ? 'success' : 'warning' 
+  	return self.check ? 'success' : self.issues.count > 0 ? 'danger' : 'warning' 
   end
 end

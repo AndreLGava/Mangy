@@ -1,0 +1,33 @@
+.pequeno{
+	max-width: 70px!important;
+	width: 60px!important;
+	word-wrap: break-word;
+	white-space: initial;
+}
+
+.medio{
+	max-width: 90px!important;
+	width: 70px!important;
+	word-wrap: break-word;
+	white-space: initial;
+}
+
+.grande{
+	max-width: 120px!important;
+	width: 90px!important;
+	word-wrap: break-word;
+	white-space: initial;
+}
+
+.tablesorter-filter{
+	padding: 5px;
+	border-radius: 3px;
+	border: 1px solid #d9d9d9;
+	width: 100%;
+	margin: 3px;
+	transition: all 2s;
+
+	&:hover,:focus{
+		box-shadow: 0px 0px 7px #66e0ff;
+	}
+}

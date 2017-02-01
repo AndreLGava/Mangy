@@ -1,0 +1,17 @@
+<div class="page-header">
+  <%= link_to tecnologies_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_tecnology_path(@tecnology), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show tecnology</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Description:</dt>
+  <dd><%= @tecnology.description %></dd>
+
+</dl>

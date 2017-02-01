@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  resources :category_systems
+  resources :istories
+  resources :rastreamentos
+  resources :people
+  resources :statuses
+  resources :tecnologies
+  resources :sprints
+  resources :categories
+  resources :sistems
   resources :issues
   resources :version_tests
   resources :versions
@@ -11,6 +20,7 @@ Rails.application.routes.draw do
   get 'check' , to: 'version_tests#check', as: :check
   get 'history', to: "versions#history", as: :history
   get 'linked_issues', to: "versions#linked_issues", as: :linked_issues
+  get 'set_all_tests', to: "version_tests#set_all_tests", as: :set_all_tests
 
   resources :tests do
     post :update_row_order, on: :collection

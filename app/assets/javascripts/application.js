@@ -24,4 +24,7 @@
 //= require select2-full
 //= require alertify
 //= require alertify/confirm-modal
+//= require bootstrap-duallistbox
+//= require jquery-tablesorter
+
 

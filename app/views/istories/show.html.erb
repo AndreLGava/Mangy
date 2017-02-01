@@ -1,0 +1,26 @@
+<div class="page-header">
+  <%= link_to istories_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_istory_path(@istory), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show History</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Url:</dt>
+  <dd><%= @istory.url %></dd>
+
+  <dt>Sprint:</dt>
+  <dd><%= @istory.sprint %></dd>
+
+  <dt>Category:</dt>
+  <dd><%= @istory.category %></dd>
+
+  <dt>Description:</dt>
+  <dd><%= @istory.description %></dd>
+
+</dl>

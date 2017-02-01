@@ -11,7 +11,12 @@
       </ul>
     </div>
   <% end %>
-
+  <div class="form-group">
+    <%= f.label :description, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.input :description, as: :text, label: false, class: "form-control" %>
+    </div>
+  </div>
   <div class="form-group">
     <%= f.label :link, class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
@@ -36,7 +41,7 @@
       <%= f.check_box :real_problem, class: "form-control" %>
     </div>
   </div>
-  <%= f.input :version_test_id, :as => :hidden, :input_html => { :value => @version_test.id } %>
+  <%= f.input :version_test_id, :as => :hidden, :input_html => { :value => @version_test ? @version_test.id : nil } %>
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
       <%= f.submit class: "btn btn-primary" %>

@@ -25,9 +25,9 @@
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :system, class: "col-sm-2 control-label" %>
+    <%= f.label :sistem, class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
-      <%= f.text_field :system, class: "form-control" %>
+      <%= f.association :sistem, collection: Sistem.order(description: :ASC), label_method: :description, value_method: :id, include_blank: false, label: false, class: "form-control" %>
     </div>
   </div>
   <div class="form-group">

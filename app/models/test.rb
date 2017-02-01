@@ -6,10 +6,12 @@ class Test < ActiveRecord::Base
 	has_many :version_tests, dependent: :destroy
 	has_many :issues, :through => :version_tests
 
+	belongs_to :category
+
 	validates :description, presence: true
 	validates :expected_result, presence: true
 	validates :status, presence: true
-	validates :part, presence: true
+	validates :category, presence: true
 
 	before_create :set_row_order
 

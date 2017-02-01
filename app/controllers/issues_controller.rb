@@ -4,7 +4,7 @@ class IssuesController < ApplicationController
   # GET /issues
   # GET /issues.json
   def index
-    @issues = Issue.where(done: false).order(id: :desc)
+    @issues = Issue.order(id: :DESC)
   end
 
   # GET /issues/1
@@ -14,7 +14,7 @@ class IssuesController < ApplicationController
 
   # GET /issues/new
   def new
-    @version_test = VersionTest.find(params[:version_test])
+    @version_test =  params[:version_test] ? VersionTest.find(params[:version_test]) : nil
     @issue = Issue.new
   end
 

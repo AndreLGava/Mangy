@@ -3,6 +3,10 @@
     <span class="glyphicon glyphicon-plus"></span>
     Add Test
   <% end %>
+  <%= link_to set_all_tests_path(version: @version), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    Add All Tests
+  <% end %>
   <h3>Tests</h3>
   <div class="btn-group" role="group" aria-label="...">
     <button type="button" class="btn btn-primary">All: <%= @all %></button>
@@ -10,20 +14,22 @@
     <button type="button" class="btn btn-danger">To do: <%= @to_do %></button>
   </div>
 </div>
-<div class="table-responsive">
-  <table class="table table-striped table-hover">
+<div class="table-responsive tableable">
+  <table class="table table-striped table-hover tablesorter">
     <thead>
       <tr> 
-            <th></th>
-            <th>Description</th>
+            <th class="sortable">Part</th>
+            <th class="sortable">Description</th>
+            <th class="sortable">Status</th>
             <th>Settings</th>
-            <th>File</th>
-            <th>Status</th>
-            <th>Part</th>
+            <th class="pequeno">File</th>
             <th>Expected result</th>
             <th>Obtained result</th>
             <th>Impact</th>
+            <th>ID</th>
             <th>Check</th>
+            <th>Issues</th>
+            <th></th>
             <th>Options</th>
       </tr>
     </thead>
@@ -31,16 +37,18 @@
     <tbody>
       <%= content_tag_for(:tr, @version_tests) do |version_test| %>
           <tr class="<%= version_test.done %>">
-            <td><%= link_to "Edit Test", edit_test_path(version_test.test.id), target: '_blank', class: "btn btn-default" %></td>
+            <td><%= version_test.test.category.description %></td>
             <td><%= version_test.test.description %></td>
-            <td><%= version_test.test.settings %></td>
-            <td><%= version_test.test.file %></td>
             <td><%= version_test.test.status %></td>
-            <td><%= version_test.test.part %></td>
+            <td><%= version_test.test.settings %></td>
+            <td class="pequeno"><%= version_test.test.file %></td>
             <td><%= version_test.test.expected_result %></td>
             <td><%= version_test.obtained_result %></td>
             <td><%= version_test.impact %></td>
+            <td><%= version_test.test.id %></td>
             <td><%= check_box_tag( "version_test_#{version_test.id}", version_test.id, version_test.check, { onchange: "check(#{version_test.id}, this , 'check')"})  %></td>
+            <td><%= version_test.issues.count %></td>
+            <td><%= link_to "Edit Test", edit_test_path(version_test.test.id), target: '_blank', class: "btn btn-default" %></td>
             <td>              
               <!-- Single button -->
               <div class="btn-group">
@@ -63,3 +71,8 @@
   </table>
 </div>
 
+<script>
+  $(document).ready(function(){
+    agora();
+  });
+</script>

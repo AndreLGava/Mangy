@@ -1,0 +1,33 @@
+<div class="page-header">
+  <%= link_to new_sprint_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Sprint
+  <% end %>
+  <h1>Listing sprints</h1>
+</div>
+
+<div class="table-responsive panel panel-default">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Start</th>
+            <th>Done</th>
+            <th>Meta</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @sprints) do |sprint| %>
+            <td><%= sprint.start %></td>
+            <td><%= sprint.done %></td>
+            <td><%= sprint.meta %></td>
+            <td><%= link_to 'Show', sprint %></td>
+        <td><%= link_to 'Edit', edit_sprint_path(sprint) %></td>
+        <td><%= link_to 'Destroy', sprint, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>
