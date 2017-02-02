@@ -26,13 +26,13 @@
     <tbody>
       <% @tests.each do |test| %>
         <tr data-item-id=<%= "#{test.id}" %> class="item">
-            <td><%= test.id %></td>
-            <td><%= test.description %></td>
-            <td><%= test.settings %></td>
-            <td><%= test.file %></td>
-            <td><%= test.expected_result %></td>
-            <td><%= test.status %></td>
-            <td><%= test.category.description %></td>
+            <td><%= raw test.id %></td>
+            <td><%= raw test.description %></td>
+            <td><%= raw test.settings %></td>
+            <td><%= raw test.file %></td>
+            <td><%= raw test.expected_result %></td>
+            <td><%= raw test.status %></td>
+            <td><%= raw test.category.description %></td>
             <td><%= link_to 'Show', test %></td>
             <td><%= link_to 'Edit', edit_test_path(test) %></td>
             <td><%= link_to 'Destroy', test, method: :delete, data: { confirm: 'Are you sure?' } %></td>

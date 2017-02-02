@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  requisito: MyText
+  description: MyText
+  pratic: MyText
+  part: MyString
+  functionality: MyString
+  traceable_item: MyText
+  category: MyString
+  link: MyString
+  groups: MyString
+  context: MyString
+  tag: MyText
+  configuration: MyText
+
+two:
+  requisito: MyText
+  description: MyText
+  pratic: MyText
+  part: MyString
+  functionality: MyString
+  traceable_item: MyText
+  category: MyString
+  link: MyString
+  groups: MyString
+  context: MyString
+  tag: MyText
+  configuration: MyText

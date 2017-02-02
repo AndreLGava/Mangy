@@ -1,0 +1,57 @@
+<div class="page-header">
+  <%= link_to new_documentation_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Documentation
+  <% end %>
+  <h1>Listing documentations</h1>
+</div>
+
+<div class="table-responsive panel panel-default tableable ">
+  <table class="table table-striped table-bordered table-hover tablesorter">
+    <thead>
+      <tr>
+            <th class="sortable">Requisito</th>
+            <th class="sortable">Description</th>
+            <th class="sortable">Pratic</th>
+            <th class="sortable">Module</th>
+            <th class="sortable">Functionality</th>
+            <th class="sortable">Traceable item</th>
+            <th class="sortable">Category</th>
+            <th class="sortable">Link</th>
+            <th class="sortable">Groups</th>
+            <th class="sortable">Context</th>
+            <th class="sortable">Tag</th>
+            <th class="sortable">Configuration</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @documentations) do |documentation| %>
+            <td><%= raw documentation.requisito %></td>
+            <td><%= raw documentation.description %></td>
+            <td><%= raw documentation.pratic %></td>
+            <td><%= raw documentation.part %></td>
+            <td><%= raw documentation.functionality %></td>
+            <td><%= raw documentation.traceable_item %></td>
+            <td><%= raw documentation.category %></td>
+            <td><%= raw documentation.link %></td>
+            <td><%= raw documentation.groups %></td>
+            <td><%= raw documentation.context %></td>
+            <td><%= raw documentation.tag %></td>
+            <td><%= raw documentation.configuration %></td>
+            <td><%= link_to 'Show', documentation %></td>
+        <td><%= link_to 'Edit', edit_documentation_path(documentation) %></td>
+        <td><%= link_to 'Destroy', documentation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<script>
+  $(document).ready(function(){
+    agora();
+  });
+</script>

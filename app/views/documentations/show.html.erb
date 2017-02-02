@@ -1,0 +1,50 @@
+<div class="page-header">
+  <%= link_to documentations_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_documentation_path(@documentation), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show documentation</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Requisito:</dt>
+  <dd><%= raw @documentation.requisito %></dd>
+
+  <dt>Description:</dt>
+  <dd><%= raw @documentation.description %></dd>
+
+  <dt>Pratic:</dt>
+  <dd><%= raw @documentation.pratic %></dd>
+
+  <dt>Module:</dt>
+  <dd><%= raw @documentation.part %></dd>
+
+  <dt>Functionality:</dt>
+  <dd><%= raw @documentation.functionality %></dd>
+
+  <dt>Traceable item:</dt>
+  <dd><%= raw @documentation.traceable_item %></dd>
+
+  <dt>Category:</dt>
+  <dd><%= raw @documentation.category %></dd>
+
+  <dt>Link:</dt>
+  <dd><%= raw @documentation.link %></dd>
+
+  <dt>Groups:</dt>
+  <dd><%= raw @documentation.groups %></dd>
+
+  <dt>Context:</dt>
+  <dd><%= raw @documentation.context %></dd>
+
+  <dt>Tag:</dt>
+  <dd><%= raw @documentation.tag %></dd>
+
+  <dt>Configuration:</dt>
+  <dd><%= raw @documentation.configuration %></dd>
+
+</dl>

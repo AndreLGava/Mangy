@@ -37,15 +37,15 @@
     <tbody>
       <%= content_tag_for(:tr, @version_tests) do |version_test| %>
           <tr class="<%= version_test.done %>">
-            <td><%= version_test.test.category.description %></td>
-            <td><%= version_test.test.description %></td>
-            <td><%= version_test.test.status %></td>
-            <td><%= version_test.test.settings %></td>
-            <td class="pequeno"><%= version_test.test.file %></td>
-            <td><%= version_test.test.expected_result %></td>
-            <td><%= version_test.obtained_result %></td>
-            <td><%= version_test.impact %></td>
-            <td><%= version_test.test.id %></td>
+            <td><%= raw version_test.test.category.description %></td>
+            <td><%= raw version_test.test.description %></td>
+            <td><%= raw version_test.test.status %></td>
+            <td><%= raw version_test.test.settings %></td>
+            <td class="pequeno"><%= raw version_test.test.file %></td>
+            <td><%= raw version_test.test.expected_result %></td>
+            <td><%= raw version_test.obtained_result %></td>
+            <td><%= raw version_test.impact %></td>
+            <td><%= raw version_test.test.id %></td>
             <td><%= check_box_tag( "version_test_#{version_test.id}", version_test.id, version_test.check, { onchange: "check(#{version_test.id}, this , 'check')"})  %></td>
             <td><%= version_test.issues.count %></td>
             <td><%= link_to "Edit Test", edit_test_path(version_test.test.id), target: '_blank', class: "btn btn-default" %></td>

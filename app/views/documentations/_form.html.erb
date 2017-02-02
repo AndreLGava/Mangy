@@ -1,0 +1,92 @@
+<%= form_for(@documentation, html: { class: "form-horizontal", role: "form" }) do |f| %>
+  <% if @documentation.errors.any? %>
+    <div class="alert alert-danger alert-dismissable" role="alert">
+      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      <h4><%= pluralize(@documentation.errors.count, "error") %> prohibited this documentation from being saved:</h4>
+
+      <ul>
+      <% @documentation.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :requisito, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_area :requisito, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :description, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_area :description, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :pratic, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_area :pratic, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :module, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :part, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :functionality, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :functionality, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :traceable_item, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_area :traceable_item, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :category, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :category, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :link, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :link, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :groups, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :groups, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :context, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :context, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :tag, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_area :tag, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :configuration, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_area :configuration, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

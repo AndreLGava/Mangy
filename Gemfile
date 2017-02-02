@@ -36,6 +36,7 @@ gem 'seed_dump'
 gem 'bootstrap-duallistbox-rails', '~> 3.0', '>= 3.0.2'
 gem "paperclip", "~> 5.0.0"
 gem 'jquery-tablesorter'
+gem 'tinymce-rails'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

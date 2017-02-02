@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :documentations
+  resources :documentations
   resources :category_systems
   resources :istories
   resources :rastreamentos

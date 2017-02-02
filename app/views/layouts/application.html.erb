@@ -16,6 +16,28 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <script type="text/javascript">
+    tinyMCE.init({
+        selector: 'textarea.form-control',
+        theme: 'modern',
+        plugins: [
+          'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+          'searchreplace wordcount visualblocks visualchars code fullscreen',
+          'insertdatetime media nonbreaking save table contextmenu directionality',
+          'emoticons template paste textcolor colorpicker textpattern imagetools codesample toc'
+        ],
+        toolbar1: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview | forecolor backcolor | codesample',
+        image_advtab: true,
+        templates: [
+          { title: 'Test template 1', content: 'Test 1' },
+          { title: 'Test template 2', content: 'Test 2' }
+        ],
+        content_css: [
+          '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+          '//www.tinymce.com/css/codepen.min.css'
+        ]
+       });
+  </script>
 </head>
 <body>
   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -33,14 +55,23 @@
         <ul class="nav navbar-nav navbar-right">
           <li><%= link_to 'Bateria de testes', versions_path %></li>
           <li><%= link_to 'Testes', tests_path %></li>
+          <li><%= link_to 'Documentation', documentations_path %></li>
           <li><%= link_to 'Issues', issues_path %></li>
-          <li><%= link_to 'Categorias', categories_path %></li>
-          <li><%= link_to 'Sistemas', sistems_path %></li>
-          <li><%= link_to 'Histórias', istories_path %></li>
-          <li><%= link_to 'Sprints', sprints_path %></li>
-          <li><%= link_to 'Tecnologias', tecnologies_path %></li>
-          <li><%= link_to 'Pessoas', people_path %></li>
-          <li><%= link_to 'Status', statuses_path %></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Other Options <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to 'Histórias', istories_path %></li>
+              <li><%= link_to 'Sprints', sprints_path %></li>
+              <li><%= link_to 'Status', statuses_path %></li>
+              <li role="separator" class="divider"></li>
+              <li><%= link_to 'Sistemas', sistems_path %></li>
+              <li><%= link_to 'Categorias', categories_path %></li>
+              <li role="separator" class="divider"></li>
+              <li><%= link_to 'Tecnologias', tecnologies_path %></li>
+              <li role="separator" class="divider"></li>
+              <li><%= link_to 'Pessoas', people_path %></li>
+            </ul>
+          </li>
         </ul>
       </div>
     </div>

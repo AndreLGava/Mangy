@@ -16,21 +16,21 @@
 
 <dl class="dl-horizontal">
   <dt>Description:</dt>
-  <dd><%= @test.description %></dd>
+  <dd><%= raw @test.description %></dd>
 
   <dt>Settings:</dt>
-  <dd><%= @test.settings %></dd>
+  <dd><%= raw @test.settings %></dd>
 
   <dt>File:</dt>
-  <dd><%= @test.file %></dd>
+  <dd><%= raw @test.file %></dd>
 
   <dt>Expected result:</dt>
-  <dd><%= @test.expected_result %></dd>
+  <dd><%= raw @test.expected_result %></dd>
 
   <dt>Status:</dt>
-  <dd><%= @test.status %></dd>
+  <dd><%= raw @test.status %></dd>
 
   <dt>Category:</dt>
-  <dd><%= @test.category.description %></dd>
+  <dd><%= raw @test.category.description %></dd>
 
 </dl>
