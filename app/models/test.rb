@@ -15,6 +15,8 @@ class Test < ActiveRecord::Base
 
 	before_create :set_row_order
 
+	enum status: {Irrelevante: 0, Importante: 1, Crítico: 2 }
+
 	def set_row_order
 	  last_row_order = Test.maximum(:row_order)
 	  self.row_order = last_row_order.to_i + 1

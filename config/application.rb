@@ -23,5 +23,7 @@ module Managy
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+    Time::DATE_FORMATS[:default] = "%d/%m/%Y %H:%M"
+    Date::DATE_FORMATS[:default] = "%d/%m/%Y"
   end
 end

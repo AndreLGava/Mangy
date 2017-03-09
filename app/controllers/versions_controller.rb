@@ -22,12 +22,17 @@ class VersionsController < ApplicationController
   end
 
   def download
-    @version_tests = VersionTest.where(version_id: @version).includes('test').order('tests.part ASC')
+    @version_tests = VersionTest.where(version_id: @version).includes('test')
     respond_to do |format|
      # format.csv { send_data @version_tests.to_csv }
       format.xls  #{ send_data @version_tests.to_csv(col_sep: "\t") }
     end
   end
+
+  def progresso
+    @version = Version.find_by_id(params[:id])
+  end
+
 
   def versionissues
     @version_issues = @version.issues.order(id: :desc)
@@ -46,6 +51,7 @@ class VersionsController < ApplicationController
   # GET /versions/new
   def new
     @version = Version.new
+    @category = Category.all
   end
 
   # GET /versions/1/edit
@@ -56,7 +62,7 @@ class VersionsController < ApplicationController
   # POST /versions.json
   def create
     @version = Version.new(version_params)
-
+    @categories = version_params[:category]
     respond_to do |format|
       if @version.save
         format.html { redirect_to @version, notice: 'Version was successfully created.' }
@@ -99,14 +105,17 @@ class VersionsController < ApplicationController
     end
 
     def set_new_version
-      @tests = Test.rank(:row_order).all
-      @tests.each do |t|
-        VersionTest.create(obtained_result: '--', impact: '--', test_id: t.id, version_id: @version.id)
+      @categories = @categories.sort
+      @categories.each do |c|
+        @tests = Test.rank(:row_order).where( category_id: c)
+        @tests.each do |t|
+          VersionTest.create(obtained_result: '--', impact: '--', test_id: t.id, version_id: @version.id)
+        end
       end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def version_params
-      params.require(:version).permit(:responsable, :used_user, :system, :observation, :impediment, :start, :finish, :sistem_id)
+      params.require(:version).permit(:responsable, :used_user, :system, :observation, :impediment, :start, :finish, :sistem_id, category: [])
     end
 end

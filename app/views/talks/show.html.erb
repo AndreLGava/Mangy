@@ -1,0 +1,24 @@
+<div class="page-header">
+  <%= link_to talks_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_talk_path(@talk), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+    <%= link_to new_talk_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Talk
+  <% end %>
+  <h1>Show talk</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Who:</dt>
+  <dd><%= raw @talk.who %></dd>
+
+  <dt>Said:</dt>
+  <dd><%= raw @talk.said %></dd>
+
+</dl>

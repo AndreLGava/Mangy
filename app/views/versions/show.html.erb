@@ -15,15 +15,15 @@
     <tr>
       <td>Responsable: <%= @version.responsable %></td>
       <td>Used user: <%= @version.used_user %></td>
-      <td>Sistem: <%= @version.sistem.description %></td>
+      <td>Sistem: <%= raw @version.sistem.description %></td>
     </tr>
     <tr>
       <td>Start: <%= @version.start %></td>
       <td colspan="2">Finish: <%= @version.finish %></td>
     </tr>
     <tr>
-      <td>Observation: <%= @version.observation %></td>
-      <td colspan="2">Impediment: <%= @version.impediment %></td>
+      <td>Observation: <%= raw @version.observation %></td>
+      <td colspan="2">Impediment: <%= raw @version.impediment %></td>
     </tr>
   </table>
 </div>
@@ -32,6 +32,7 @@
     <%= link_to 'Tests', versiontests_path(id: @version.id), class: 'btn btn-default', id: 'test' , remote: true  %>
     <%= link_to 'Issues', versionissues_path(id: @version.id), class: 'btn btn-default', id: 'issue', remote: true  %>
     <%= link_to "Download as Excel", download_path(format: "xls", id: @version.id) ,class: 'btn btn-default' %>
+    <%= link_to "Progresso", progresso_path(id: @version.id), remote: true, data: { 'toggle' => 'modal', 'target' => '#modal' }, class: 'btn btn-default' %>
   </div>
   <br>
   <div id="version_content">

@@ -44,9 +44,9 @@
           <tr class="<%= version.done_version %>">
             <td><%= version.responsable %></td>
             <td><%= version.used_user %></td>
-            <td><%= version.sistem.description %></td>
-            <td><%= version.observation %></td>
-            <td><%= version.impediment %></td>
+            <td><%= raw version.sistem.description %></td>
+            <td><%= raw version.observation %></td>
+            <td><%= raw version.impediment %></td>
             <td><%= version.start %></td>
             <td><%= version.finish %></td>
             <td><%= link_to 'Show', version %></td>

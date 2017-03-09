@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :talks
   resources :documentations
   resources :documentations
   resources :category_systems
@@ -23,6 +24,7 @@ Rails.application.routes.draw do
   get 'history', to: "versions#history", as: :history
   get 'linked_issues', to: "versions#linked_issues", as: :linked_issues
   get 'set_all_tests', to: "version_tests#set_all_tests", as: :set_all_tests
+  get 'progresso', to: "versions#progresso", as: :progresso
 
   resources :tests do
     post :update_row_order, on: :collection

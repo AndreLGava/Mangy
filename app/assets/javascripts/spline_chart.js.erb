@@ -1,0 +1,60 @@
+var SplineGraph = {
+  setup: function (data) {
+    console.log(data.data);
+      $('.chart').highcharts({
+    			chart: {
+    					type: 'spline'
+    			},
+    			title: {
+    					text: data.title
+    			},
+    			subtitle: {
+    					text: data.subtitle
+    			},
+    			xAxis: {
+                        categories: data.data.updated,
+    					type: 'datetime',
+    					labels: {
+    							overflow: 'justify'
+    					}
+    			},
+    			yAxis: {
+    					title: {
+    							text: data.yAxis
+    					},
+    					minorGridLineWidth: 0,
+    					gridLineWidth: 0,
+    					alternateGridColor: null    					
+    			},
+    			plotOptions: {
+    					spline: {
+    							lineWidth: 4,
+    							states: {
+    									hover: {
+    											lineWidth: 5
+    									}
+    							},
+    							marker: {
+    									enabled: false
+    							}
+    					}
+    			},
+    			series: [{
+    					name: 'Total processado por dia',
+    					data: data.data.count
+
+    			},{
+                        name: 'Total faltante',
+                        data: data.data.faltante
+                },{
+                        name: 'Total processado',
+                        data: data.data.processado
+                }],
+    			navigation: {
+    					menuItemStyle: {
+    							fontSize: '10px'
+    					}
+    			}
+    	});
+    }
+};

@@ -1,6 +1,6 @@
 class Category < ActiveRecord::Base
 
-	has_many :sistems
-
+	belongs_to :sistem
 	has_many :tests
+
 end
