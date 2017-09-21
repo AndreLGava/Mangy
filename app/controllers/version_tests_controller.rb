@@ -10,16 +10,18 @@ class VersionTestsController < ApplicationController
     @check = params[:checked]
     @version = Version.find(@test.version_id)
     @version_tests = @version.version_tests
-      respond_to do |format|
-        if @test.update_attributes(check: @check)
-          @done          = @version.version_tests.where(check: true).count
-          @all           = @version_tests.count
-          @to_do         = @version.version_tests.where(check: false).count
-          format.js { render 'versiontests', version_tests: @version_tests }
-        else
-          format.js { render 'edit' }
-        end
-      end
+    @test.update_attributes(check: @check)
+    render :nothing => true
+      #respond_to do |format|
+       # if @test.update_attributes(check: @check)
+        #  @done          = @version.version_tests.where(check: true).count
+         # @all           = @version_tests.count
+          #@to_do         = @version.version_tests.where(check: false).count
+          #format.js { render 'versiontests', version_tests: @version_tests }
+        #else
+         # format.js { render 'edit' }
+        #end
+     # end
   end
 
   def show

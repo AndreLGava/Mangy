@@ -60,7 +60,16 @@
     });
 
     function check(version_test, element, caminho) {
-      var checked = $(element).is(':checked'); 
+      var checked = $(element).is(':checked');
+      if(checked == true){
+        classeChecked = "warning";
+        classeUnchecked = "success";
+      }else{
+        classeChecked = "success";
+        classeUnchecked = "warning";
+      }
+      $('#'+version_test).removeClass(classeChecked);
+      $('#'+version_test).addClass(classeUnchecked);
       $.ajax({
           url: "/"+caminho,
           data: { id: version_test, checked: checked }

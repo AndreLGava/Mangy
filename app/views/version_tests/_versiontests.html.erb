@@ -36,7 +36,7 @@
 
     <tbody>
       <%= content_tag_for(:tr, @version_tests) do |version_test| %>
-          <tr class="<%= version_test.done %>">
+          <tr class="<%= version_test.done %>" id='<%= version_test.id %>'>
             <td><%= raw version_test.test.category.description %></td>
             <td><%= raw version_test.test.description %></td>
             <td><%= raw version_test.test.status %></td>
