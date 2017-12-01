@@ -25,12 +25,11 @@ class SistemsController < ApplicationController
   # POST /sistems
   # POST /sistems.json
   def create
-    
     @sistem = Sistem.new(sistem_params)
 
     respond_to do |format|
       if @sistem.save
-        associate_categories
+       # associate_categories
         format.html { redirect_to @sistem, notice: 'Sistem was successfully created.' }
         format.json { render :show, status: :created, location: @sistem }
       else
