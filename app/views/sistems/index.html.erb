@@ -20,6 +20,7 @@
     <tbody>
       <%= content_tag_for(:tr, @sistems) do |sistem| %>
             <td><%= sistem.description %></td>
+            <td><%= sistem.sistem.description unless sistem.sistem.nil? %></td>
             <td><%= link_to 'Show', sistem %></td>
         <td><%= link_to 'Edit', edit_sistem_path(sistem) %></td>
         <td><%= link_to 'Destroy', sistem, method: :delete, data: { confirm: 'Are you sure?' } %></td>

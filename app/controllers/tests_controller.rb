@@ -20,7 +20,12 @@ class TestsController < ApplicationController
 
   # GET /tests/new
   def new
-    @test = Test.new
+    unless params[:category].nil?
+      @category  = Category.find(params[:category]) 
+      @test = @category.tests.new
+    else
+      @test = Test.new
+    end
   end
 
   # GET /tests/1/edit

@@ -11,13 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170306125346) do
+ActiveRecord::Schema.define(version: 20180113155901) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "sistem_id"
   end
+
+  add_index "categories", ["sistem_id"], name: "index_categories_on_sistem_id"
 
   create_table "categories_sistems", force: :cascade do |t|
     t.integer "category_id"
@@ -127,7 +130,10 @@ ActiveRecord::Schema.define(version: 20170306125346) do
     t.string   "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "sistem_id"
   end
+
+  add_index "sistems", ["sistem_id"], name: "index_sistems_on_sistem_id"
 
   create_table "sprints", force: :cascade do |t|
     t.datetime "start"

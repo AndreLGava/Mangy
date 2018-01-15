@@ -50,7 +50,13 @@ class VersionsController < ApplicationController
 
   # GET /versions/new
   def new
-    @version = Version.new
+    unless params[:sistem].nil?
+      @sistem  = Sistem.find(params[:sistem]) 
+      @version = @sistem.versions.new
+      @selected_categories = @sistem.categories.map(&:id) unless @sistem.nil?
+    else
+      @version = Version.new
+    end
     @category = Category.all
   end
 

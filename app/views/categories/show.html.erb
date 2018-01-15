@@ -15,3 +15,12 @@
   <dd><%= @category.description %></dd>
 
 </dl>
+<div class="page-header">
+  <%= link_to new_test_path(category: @category), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Test
+  <% end %>
+  <h1>Listing tests</h1>
+</div>
+
+<%= render partial: 'tests/index' %>

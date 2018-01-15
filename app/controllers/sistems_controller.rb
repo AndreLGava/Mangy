@@ -11,6 +11,9 @@ class SistemsController < ApplicationController
   # GET /sistems/1
   # GET /sistems/1.json
   def show
+    @categories = @sistem.categories
+    @versions = @sistem.versions
+    @tests = @sistem.tests
   end
 
   # GET /sistems/new
@@ -25,11 +28,10 @@ class SistemsController < ApplicationController
   # POST /sistems
   # POST /sistems.json
   def create
+    
     @sistem = Sistem.new(sistem_params)
-
     respond_to do |format|
       if @sistem.save
-       # associate_categories
         format.html { redirect_to @sistem, notice: 'Sistem was successfully created.' }
         format.json { render :show, status: :created, location: @sistem }
       else
@@ -45,7 +47,6 @@ class SistemsController < ApplicationController
     
     respond_to do |format|
       if @sistem.update(sistem_params)
-        associate_categories
         format.html { redirect_to @sistem, notice: 'Sistem was successfully updated.' }
         format.json { render :show, status: :ok, location: @sistem }
       else
@@ -65,10 +66,6 @@ class SistemsController < ApplicationController
     end
   end
 
-  def associate_categories
-    @sistem.categories << sistem_params(:categories)
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_sistem
@@ -82,6 +79,6 @@ class SistemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sistem_params
-      params.require(:sistem).permit(:description, :categories)
+      params.require(:sistem).permit(:description, :categories, :sistem_id)
     end
 end

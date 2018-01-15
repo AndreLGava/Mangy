@@ -13,5 +13,33 @@
 <dl class="dl-horizontal">
   <dt>Description:</dt>
   <dd><%= @sistem.description %></dd>
-
 </dl>
+
+
+<dl class="dl-horizontal">
+  <dt>Father:</dt>
+  <dd><%= @sistem.sistem.description unless @sistem.sistem.nil? %></dd>
+</dl>
+
+
+<h1>Categorias</h1>
+<%= render partial: 'categories/index'%>
+<div class="page-header">
+  <%= link_to new_version_path(sistem: @sistem), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Version test
+  <% end %>
+  <h1>Versões testadas</h1>
+</div>
+
+<%= render partial: 'versions/index'%>
+
+<div class="page-header">
+  <%= link_to new_test_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Test
+  <% end %>
+  <h1>Casos de teste</h1>
+</div>
+
+<%= render partial: 'tests/index'%>
