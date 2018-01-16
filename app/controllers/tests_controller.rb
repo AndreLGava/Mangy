@@ -1,5 +1,7 @@
 class TestsController < ApplicationController
   before_action :set_test, only: [:show, :edit, :update, :destroy]
+  after_action :set_new_origins, only: [:create]
+  after_action :set_new_pre, only: [:create]
 
   # GET /tests
   # GET /tests.json
@@ -35,8 +37,11 @@ class TestsController < ApplicationController
   # POST /tests
   # POST /tests.json
   def create
+    @origin = test_params[:origin_ids]
+    @pre = test_params[:pre_ids]
+    params[:test].delete :origin_ids
+    params[:test].delete :pre_ids
     @test = Test.new(test_params)
-
     respond_to do |format|
       if @test.save
         format.html { redirect_to @test, notice: 'Test was successfully created.' }
@@ -73,6 +78,20 @@ class TestsController < ApplicationController
   end
 
   private
+    def set_new_origins
+      @origin = @origin.sort
+      @origin.each do |c|
+        Context.create(origin_id_id: c, destiny_id_id: @test.id)
+      end
+    end
+
+    def set_new_pre
+      @pre = @pre.sort
+      @pre.each do |c|
+        Dependency.create(pre_id: c, pos_id: @test.id)
+      end
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_test
       @test = Test.find(params[:id])
@@ -80,6 +99,6 @@ class TestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def test_params
-      params.require(:test).permit(:test_id, :description, :row_order_position, :settings, :file, :expected_result, :status, :part, :category_id)
+      params.require(:test).permit(:test_id, :description, :row_order_position, :settings, :file, :expected_result, :status, :part, :category_id, origin_ids: [], pre_ids: [])
     end
 end

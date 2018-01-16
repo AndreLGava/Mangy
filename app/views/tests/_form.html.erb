@@ -49,6 +49,20 @@
       </div>
     </div>
 
+    <div class="form-group">
+      <%= f.label :origin, class: "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= f.association :origins, collection: Test.order(description: :ASC), label_method: :description, value_method: :id, include_blank: true, input_html: {multiple: true}, label: false, class: "form-control multiple" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :pre, class: "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= f.association :pre, collection: Test.order(description: :ASC), label_method: :description, value_method: :id, include_blank: true, input_html: {multiple: true}, label: false, class: "form-control multiple" %>
+      </div>
+    </div>
+
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
       <%= f.submit class: "btn btn-primary" %>
@@ -65,6 +79,14 @@ $(document).ready(function() {
       cache: true,
       autocomplete: true,
       width: "100%"
+  });
+  $("multiple").select2({
+      theme: "bootstrap",
+      allowClear: true,
+      cache: true,
+      autocomplete: true,
+      width: "100%",
+      multiple: true
   });
 });
 </script>

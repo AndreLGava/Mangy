@@ -22,6 +22,8 @@
             <th class="sortable">Description</th>
             <th class="sortable">Status</th>
             <th>Settings</th>
+            <th>Related</th>
+            <th class="">Dependency</th>
             <th class="pequeno">File</th>
             <th>Expected result</th>
             <th>Obtained result</th>
@@ -41,6 +43,16 @@
             <td><%= raw version_test.test.description %></td>
             <td><%= raw version_test.test.status %></td>
             <td><%= raw version_test.test.settings %></td>
+            <td>                
+              <% version_test.test.destinys.each do |origem| %>
+                <%= link_to origem.origin.id, origem.origin, class: 'label label-info', target: "_blank" unless origem.origin.nil?%>
+              <% end %>
+            </td>
+            <td>
+                <% version_test.test.pos.each do |origem| %>
+                    <%= link_to origem.pre.id, origem.pre, class: 'label label-danger', target: "_blank" unless origem.pre.nil?%>
+                <% end %>
+            </td>
             <td class="pequeno"><%= raw version_test.test.file %></td>
             <td><%= raw version_test.test.expected_result %></td>
             <td><%= raw version_test.obtained_result %></td>

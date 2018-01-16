@@ -33,4 +33,16 @@
   <dt>Category:</dt>
   <dd><%= raw @test.category.description %></dd>
 
+  <dt>Context:</dt>
+  <dd>
+    <% @test.destinys.each do |origem| %>
+      <%= link_to origem.origin.id, origem.origin, class: 'label label-info', target: "_blank", title: origem.origin.description.html_safe unless origem.origin.nil?%>
+    <% end %>
+  </dd>
+  <dt>Dependency:</dt>
+  <dd>
+    <% @test.pos.each do |origem| %>
+        <%= link_to origem.pre.id, origem.pre, class: 'label label-danger', target: "_blank", title: origem.pre.settings.html_safe unless origem.pre.nil?%>
+    <% end %>
+  </dd>
 </dl>

@@ -9,6 +9,8 @@
             <th>Expected result</th>
             <th>Status</th>
             <th>Category</th>
+            <th>Context</th>
+            <th>Dependecy</th>
             <th></th>
         <th></th>
         <th></th>
@@ -25,6 +27,16 @@
             <td><%= raw test.expected_result %></td>
             <td><%= raw test.status %></td>
             <td><%= raw test.category.description unless test.category.nil? %></td>
+            <td>
+                <% test.destinys.each do |origem| %>
+                    <%= link_to origem.origin.id, origem.origin, class: 'label label-info', target: "_blank" unless origem.origin.nil?%>
+                <% end %>
+            </td>
+            <td>
+                <% test.pos.each do |origem| %>
+                    <%= link_to origem.pre.id, origem.pre, class: 'label label-danger', target: "_blank" unless origem.pre.nil?%>
+                <% end %>
+            </td>
             <td><%= link_to 'Show', test %></td>
             <td><%= link_to 'Edit', edit_test_path(test) %></td>
             <td><%= link_to 'Destroy', test, method: :delete, data: { confirm: 'Are you sure?' } %></td>

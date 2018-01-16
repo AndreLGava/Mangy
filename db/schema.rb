@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180113155901) do
+ActiveRecord::Schema.define(version: 20180115233906) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "description"
@@ -36,6 +36,20 @@ ActiveRecord::Schema.define(version: 20180113155901) do
 
   add_index "category_systems", ["category_id"], name: "index_category_systems_on_category_id"
   add_index "category_systems", ["sistem_id"], name: "index_category_systems_on_sistem_id"
+
+  create_table "contexts", force: :cascade do |t|
+    t.integer "tests_id"
+    t.integer "destiny_id_id"
+    t.integer "integer_id"
+    t.integer "origin_id_id"
+  end
+
+  create_table "dependencies", force: :cascade do |t|
+    t.integer "tests_id"
+    t.integer "pos_id"
+    t.integer "integer_id"
+    t.integer "pre_id"
+  end
 
   create_table "documentations", force: :cascade do |t|
     t.text     "requisito"
